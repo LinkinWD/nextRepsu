@@ -19,15 +19,6 @@ export const getStaticPaths = async () => {
 		};
 	});
 
-	if (!items.length) {
-		return {
-			redirect: {
-				destination: '/',
-				permanent: false
-			}
-		};
-	}
-
 	return {
 		paths,
 		fallback: true
@@ -39,6 +30,16 @@ export async function getStaticProps({ params }) {
 		content_type: 'resepti',
 		'fields.slug': params.slug
 	});
+
+	if (!items.length) {
+		return {
+			redirect: {
+				destination: '/',
+				permanent: false
+			}
+		};
+	}
+
 	return {
 		props: { resepti: items[0] },
 		revalidate: 1
