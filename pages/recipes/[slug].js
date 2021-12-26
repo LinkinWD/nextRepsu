@@ -23,7 +23,7 @@ export const getStaticPaths = async () => {
 		return {
 			redirect: {
 				destination: '/',
-				pernament: false
+				permanent: false
 			}
 		};
 	}
