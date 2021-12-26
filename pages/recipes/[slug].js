@@ -18,6 +18,16 @@ export const getStaticPaths = async () => {
 			params: { slug: item.fields.slug }
 		};
 	});
+
+	if (!items.length) {
+		return {
+			redirect: {
+				destination: '/',
+				pernament: false
+			}
+		};
+	}
+
 	return {
 		paths,
 		fallback: true
